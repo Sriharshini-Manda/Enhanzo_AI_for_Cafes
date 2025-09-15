@@ -1,0 +1,400 @@
+{% extends "base.html" %}
+
+{% block title %}Data Collections{% endblock %}
+
+{% block content %}
+<section class="relative flex items-center justify-center min-h-[60vh] text-center">
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-500 via-green-500 to-red-500"></div>
+
+  <div class="relative z-10 max-w-2xl px-6">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Data Collections</h1>
+    <p class="text-lg text-gray-200">
+      Collect valuable business details so our AI can provide tailored recommendations.
+    </p>
+  </div>
+</section>
+
+<section class="container mx-auto px-6 py-16 flex justify-center">
+  <div class="w-full max-w-4xl bg-neutral-900 border border-neutral-800 rounded-xl shadow-lg p-8 space-y-6">
+    <h2 class="text-2xl font-bold text-center text-white">Submit Your Business Details</h2>
+
+    <form action="{{ url_for('main.data_collections') }}" method="POST" enctype="multipart/form-data"
+      class="space-y-12">
+
+      <!-- SECTION 1: Café Data Collection -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-white">Section 1 — Café / Business Data</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="cafe_name" class="block text-sm font-medium text-neutral-300 mb-2">Name of the cafe / business
+              (full name) *</label>
+            <input type="text" id="cafe_name" name="cafe_name" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., Cafe Delight">
+          </div>
+
+          <div>
+            <label for="owner_name" class="block text-sm font-medium text-neutral-300 mb-2">Name of the Cafe Owner
+              *</label>
+            <input type="text" id="owner_name" name="owner_name" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="Owner full name">
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-neutral-300 mb-2">Contact Details (Phone number)
+              *</label>
+            <input type="tel" id="phone" name="phone" required inputmode="tel"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="+91 98765 43210">
+          </div>
+
+          <div>
+            <label for="city" class="block text-sm font-medium text-neutral-300 mb-2">City *</label>
+            <input type="text" id="city" name="city" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="City name">
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="cafe_address" class="block text-sm font-medium text-neutral-300 mb-2">Address of the Cafe (full
+              address) *</label>
+            <input type="text" id="cafe_address" name="cafe_address" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="Street, locality, pin code">
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="landmarks" class="block text-sm font-medium text-neutral-300 mb-2">Address Landmarks</label>
+            <input type="text" id="landmarks" name="landmarks"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="Nearby landmark(s)">
+          </div>
+
+          <div>
+            <label for="established" class="block text-sm font-medium text-neutral-300 mb-2">Established in / Running
+              since (Year &amp; Month) *</label>
+            <input type="month" id="established" name="established" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., 2018-03">
+          </div>
+
+          <div>
+            <label for="ownership" class="block text-sm font-medium text-neutral-300 mb-2">Ownership *</label>
+            <select id="ownership" name="ownership" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700">
+              <option value="">Select ownership</option>
+              <option value="Independent">Independent</option>
+              <option value="Franchise">Franchise</option>
+            </select>
+          </div>
+
+          <!-- Franchise fields (appear regardless; you can keep them empty if Independent) -->
+          <div>
+            <label for="franchise_name" class="block text-sm font-medium text-neutral-300 mb-2">Name of the Franchise
+              (if any)</label>
+            <input type="text" id="franchise_name" name="franchise_name"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="Franchise name (if applicable)">
+          </div>
+
+          <div>
+            <label for="franchise_cost" class="block text-sm font-medium text-neutral-300 mb-2">Franchise cost
+              (INR)</label>
+            <input type="number" id="franchise_cost" name="franchise_cost" min="0" step="1" inputmode="numeric"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., 500000">
+          </div>
+
+          <div>
+            <label for="working_days" class="block text-sm font-medium text-neutral-300 mb-2">Working Days / Open on
+              *</label>
+            <select id="working_days" name="working_days" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700">
+              <option value="">Choose</option>
+              <option value="All Days">All days of the year</option>
+              <option value="Weekdays">Weekdays only (Mon–Fri)</option>
+              <option value="Weekends">Weekends only (Sat–Sun)</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="timings" class="block text-sm font-medium text-neutral-300 mb-2">Cafe Timings *</label>
+            <input type="text" id="timings" name="timings" required placeholder="e.g., 09:00 - 23:00"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700">
+          </div>
+
+          <div>
+            <label for="footfall" class="block text-sm font-medium text-neutral-300 mb-2">Footfall (per day) *</label>
+            <input type="number" id="footfall" name="footfall" min="0" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="Average customers per day">
+          </div>
+
+          <div>
+            <label for="peak_hours" class="block text-sm font-medium text-neutral-300 mb-2">Peak hours in day
+              (timings)</label>
+            <input type="text" id="peak_hours" name="peak_hours"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., 12:00 - 15:00">
+          </div>
+
+          <div>
+            <label for="expenses" class="block text-sm font-medium text-neutral-300 mb-2">Approximate Expenses per day
+              (INR) *</label>
+            <input type="number" id="expenses" name="expenses" min="0" required step="1" inputmode="numeric"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., 8000">
+          </div>
+
+          <div>
+            <label for="lease" class="block text-sm font-medium text-neutral-300 mb-2">Lease per month (INR)</label>
+            <input type="number" id="lease" name="lease" min="0" step="1" inputmode="numeric"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="Lease amount per month">
+          </div>
+
+          <div>
+            <label for="rent" class="block text-sm font-medium text-neutral-300 mb-2">Rent per month (INR)</label>
+            <input type="number" id="rent" name="rent" min="0" step="1" inputmode="numeric"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="Rent amount per month">
+          </div>
+
+          <div>
+            <label for="sales" class="block text-sm font-medium text-neutral-300 mb-2">Approximate Sales per month (INR)
+              *</label>
+            <input type="number" id="sales" name="sales" min="0" required step="1" inputmode="numeric"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., 250000">
+          </div>
+
+          <div>
+            <label for="workers" class="block text-sm font-medium text-neutral-300 mb-2">No. of workers *</label>
+            <input type="number" id="workers" name="workers" min="0" required
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700">
+          </div>
+
+          <div>
+            <label for="wages" class="block text-sm font-medium text-neutral-300 mb-2">Wages paid per person per month
+              (INR) *</label>
+            <input type="number" id="wages" name="wages" min="0" required step="1"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., 10000">
+          </div>
+
+          <div>
+            <label for="profits" class="block text-sm font-medium text-neutral-300 mb-2">Approximate Profits per month
+              (INR) *</label>
+            <input type="number" id="profits" name="profits" min="0" required step="1"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., 50000">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-neutral-300 mb-2">Discount provided on certain items *</label>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-2"><input type="radio" name="discount_provided" value="Yes" required
+                  class="accent-blue-600"> Yes</label>
+              <label class="flex items-center gap-2"><input type="radio" name="discount_provided" value="No" required
+                  class="accent-blue-600"> No</label>
+            </div>
+          </div>
+
+          <div>
+            <label for="offers_details" class="block text-sm font-medium text-neutral-300 mb-2">Offers Details (Specific
+              Days)</label>
+            <input type="text" id="offers_details" name="offers_details"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700"
+              placeholder="e.g., Mon-Fri happy hours">
+          </div>
+
+          <div>
+            <label for="discount_percent" class="block text-sm font-medium text-neutral-300 mb-2">Discount Percentage
+              (approx)</label>
+            <input type="number" id="discount_percent" name="discount_percent" min="0" max="100" step="0.1"
+              class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700" placeholder="%">
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Categories Served -->
+      <div>
+        <h3 class="text-xl font-semibold text-white">Section 2 — Categories Served</h3>
+        <p class="text-sm text-neutral-400 mb-2">Select all categories that apply</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-white">
+          {% set categories = ["Pizza","Burgers &/or Subways","Sandwiches","Coffee","Momos &/or Asian Cuisine","Puffs /
+          Rolls / Wraps","Smoothies / Shakes","Boba or Popping Boba","Chai","Small serving Desserts / Cakes /
+          Pastries","Sodas / Mocktails / Refreshments","Cookies / Bakery Items","Noodles or Ramen","Pasta"] %}
+          {% for cat in categories %}
+          <label class="flex items-center gap-2">
+            <input type="checkbox" name="categories[]" value="{{ cat }}" class="accent-blue-600">
+            {{ cat }}
+          </label>
+          {% endfor %}
+
+          <!-- Other option with input -->
+          <div class="flex items-center gap-2 col-span-2 sm:col-span-3 md:col-span-4">
+            <input type="checkbox" id="other-category" name="categories[]" value="Other" class="accent-blue-600">
+            <label for="other-category">Other:</label>
+            <input type="text" name="other_category" placeholder="Enter your category"
+              class="flex-1 px-2 py-1 rounded-md bg-neutral-800 text-white border border-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- SECTION 3: Raw Materials & Resources -->
+      <div>
+        <h3 class="text-xl font-semibold text-white">Section 3 — Raw Materials & Resources</h3>
+        <p class="text-sm text-neutral-400 mb-2">Add materials you purchase regularly (quantity, unit, frequency)</p>
+
+        <div class="overflow-x-auto bg-neutral-900 p-3 rounded-lg border border-neutral-800">
+          <table class="min-w-full text-left">
+            <thead class="text-sm text-neutral-400">
+              <tr>
+                <th class="px-3 py-2">Material</th>
+                <th class="px-3 py-2">Quantity</th>
+                <th class="px-3 py-2">Unit</th>
+                <th class="px-3 py-2">Frequency</th>
+                <th class="px-3 py-2">Action</th>
+              </tr>
+            </thead>
+            <tbody id="resources-body">
+              <tr class="resource-row">
+                <td class="px-3 py-2"><input type="text" name="resource_material[]"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., Tomatoes"></td>
+                <td class="px-3 py-2"><input type="number" name="resource_quantity[]" min="0"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., 5"></td>
+                <td class="px-3 py-2"><input type="text" name="resource_unit[]"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., kg"></td>
+                <td class="px-3 py-2"><input type="text" name="resource_frequency[]"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., per week"></td>
+                <td class="px-3 py-2"><button type="button"
+                    class="remove-row px-3 py-1 rounded bg-red-600 text-white">Remove</button></td>
+              </tr>
+              <!-- initial two sample rows -->
+              <tr class="resource-row">
+                <td class="px-3 py-2"><input type="text" name="resource_material[]"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., Potatoes"></td>
+                <td class="px-3 py-2"><input type="number" name="resource_quantity[]" min="0"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., 8"></td>
+                <td class="px-3 py-2"><input type="text" name="resource_unit[]"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., kg"></td>
+                <td class="px-3 py-2"><input type="text" name="resource_frequency[]"
+                    class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700"
+                    placeholder="e.g., per week"></td>
+                <td class="px-3 py-2"><button type="button"
+                    class="remove-row px-3 py-1 rounded bg-red-600 text-white">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="mt-4 flex gap-3">
+            <button type="button" id="add-resource" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Add row</button>
+            <p class="text-sm text-neutral-400 self-center">You can add multiple materials. All rows will be submitted.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Service Types -->
+      <div>
+        <h3 class="text-xl font-semibold text-white">Section 4 — Service Types</h3>
+        <div class="flex flex-wrap gap-4 mt-2">
+          <label class="flex items-center gap-2"><input type="checkbox" name="service_type[]" value="Dine-in"
+              class="accent-blue-600"> Dine-in</label>
+          <label class="flex items-center gap-2"><input type="checkbox" name="service_type[]" value="Take away"
+              class="accent-blue-600"> Take away</label>
+          <label class="flex items-center gap-2"><input type="checkbox" name="service_type[]" value="Delivery"
+              class="accent-blue-600"> Delivery</label>
+        </div>
+      </div>
+
+      <!-- SECTION 5: Payment Methods -->
+      <div>
+        <h3 class="text-xl font-semibold text-white">Section 5 — Payment Methods Accepted</h3>
+        <div class="flex flex-wrap gap-4 mt-2">
+          <label class="flex items-center gap-2"><input type="checkbox" name="payment[]" value="Credit / Debit"
+              class="accent-blue-600"> Credit / Debit</label>
+          <label class="flex items-center gap-2"><input type="checkbox" name="payment[]" value="Cash"
+              class="accent-blue-600"> Cash</label>
+          <label class="flex items-center gap-2"><input type="checkbox" name="payment[]" value="UPI"
+              class="accent-blue-600"> UPI</label>
+          <label class="flex items-center gap-2"><input type="checkbox" name="payment[]" value="Other"
+              class="accent-blue-600"> Other</label>
+        </div>
+      </div>
+
+      <!-- Menu Upload -->
+      <div>
+        <label for="menu_files" class="block text-sm font-medium text-neutral-300 mb-2">Upload the menu of the cafe
+          (optional)</label>
+        <input type="file" id="menu_files" name="menu_files" multiple
+          accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.ppt,.pptx,.xls,.xlsx"
+          class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:bg-blue-600 file:text-white hover:file:bg-blue-700">
+        <p class="text-xs text-neutral-400 mt-1">You can upload up to 10 files. Max size per file: as configured on
+          server.</p>
+      </div>
+
+      <!-- Submit -->
+      <div class="text-center pt-6">
+        <button type="submit"
+          class="w-full py-3 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- JS for dynamic resource rows and file-limit check -->
+<script>
+  (function () {
+    // Add / Remove resource rows
+    const addBtn = document.getElementById('add-resource');
+    const body = document.getElementById('resources-body');
+
+    addBtn.addEventListener('click', () => {
+      const tr = document.createElement('tr');
+      tr.className = 'resource-row';
+      tr.innerHTML = `
+        <td class="px-3 py-2"><input type="text" name="resource_material[]" class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700" placeholder="Material"></td>
+        <td class="px-3 py-2"><input type="number" name="resource_quantity[]" min="0" class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700" placeholder="Qty"></td>
+        <td class="px-3 py-2"><input type="text" name="resource_unit[]" class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700" placeholder="Unit"></td>
+        <td class="px-3 py-2"><input type="text" name="resource_frequency[]" class="w-full px-3 py-2 rounded bg-neutral-800 text-white border border-neutral-700" placeholder="Frequency"></td>
+        <td class="px-3 py-2"><button type="button" class="remove-row px-3 py-1 rounded bg-red-600 text-white">Remove</button></td>
+      `;
+      body.appendChild(tr);
+    });
+
+    // Delegate remove
+    body.addEventListener('click', (e) => {
+      if (e.target && e.target.classList.contains('remove-row')) {
+        const row = e.target.closest('tr');
+        if (row) row.remove();
+      }
+    });
+
+    // Limit menu files to 10
+    const menuInput = document.getElementById('menu_files');
+    if (menuInput) {
+      menuInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 10) {
+          alert('Please select up to 10 files only.');
+          e.target.value = '';
+        }
+      });
+    }
+  })();
+</script>
+{% endblock %}

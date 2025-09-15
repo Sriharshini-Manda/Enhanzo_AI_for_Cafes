@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block title %}My Dashboard{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="relative flex items-center justify-center min-h-[60vh] text-center">
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-500 via-green-500 to-red-500"></div>
+  <div class="relative z-10 max-w-3xl px-6">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">My Dashboard</h1>
+    <p class="text-lg text-gray-200">
+      Welcome to your profile dashboard. Manage your details and preferences here.
+    </p>
+  </div>
+</section>
+
+<!-- Dashboard Layout -->
+<section class="container mx-auto px-6 py-12 flex flex-col md:flex-row gap-8">
+  <!-- Sidebar -->
+  <aside class="w-full md:w-64 bg-neutral-900 border border-neutral-800 rounded-xl shadow-lg p-6 space-y-6">
+    <div class="flex flex-col items-center">
+      <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-green-500 flex items-center justify-center text-white text-2xl font-bold">
+        O
+      </div>
+      <h2 class="mt-4 text-xl font-semibold text-white">Owner Name</h2>
+      <p class="text-sm text-gray-400">owner@email.com</p>
+    </div>
+
+    <nav class="space-y-2">
+      <button onclick="showSection('profile')" class="w-full text-left px-4 py-2 rounded-lg bg-neutral-800 text-white hover:bg-neutral-700">Profile Overview</button>
+      <button onclick="showSection('business')" class="w-full text-left px-4 py-2 rounded-lg text-gray-300 hover:bg-neutral-700">Business Details</button>
+      <button onclick="showSection('chats')" class="w-full text-left px-4 py-2 rounded-lg text-gray-300 hover:bg-neutral-700">Recent Chats</button>
+      <a href="" class="block px-4 py-2 rounded-lg text-red-500 hover:bg-red-600 hover:text-white">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 bg-neutral-900 border border-neutral-800 rounded-xl shadow-lg p-8 text-gray-300">
+
+    <!-- Profile Overview -->
+    <div id="profile" class="dashboard-section">
+      <h2 class="text-2xl font-bold text-white mb-6">Profile Overview</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Owner Name</p>
+          <p class="text-lg text-white">John Doe</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Phone</p>
+          <p class="text-lg text-white">+91-9876543210</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Email</p>
+          <p class="text-lg text-white">owner@email.com</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">City</p>
+          <p class="text-lg text-white">Mumbai</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Details -->
+    <div id="business" class="dashboard-section hidden">
+      <h2 class="text-2xl font-bold text-white mb-6">Business Details</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Basic Info -->
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Business Name</p>
+          <p class="text-lg text-white">Cafe Delight</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Address</p>
+          <p class="text-lg text-white">123 Main Street, Mumbai</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Landmarks</p>
+          <p class="text-lg text-white">Near Central Park</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Established Since</p>
+          <p class="text-lg text-white">2018-03</p>
+        </div>
+
+        <!-- Ownership & Franchise -->
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Ownership</p>
+          <p class="text-lg text-white">Independent</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Franchise Name</p>
+          <p class="text-lg text-white">-</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Franchise Cost (INR)</p>
+          <p class="text-lg text-white">0</p>
+        </div>
+
+        <!-- Operations -->
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Working Days</p>
+          <p class="text-lg text-white">All Days</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Timings</p>
+          <p class="text-lg text-white">09:00 - 23:00</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Footfall (per day)</p>
+          <p class="text-lg text-white">50</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Peak Hours</p>
+          <p class="text-lg text-white">12:00 - 15:00</p>
+        </div>
+
+        <!-- Financials -->
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Expenses per day (INR)</p>
+          <p class="text-lg text-white">8000</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Lease per month (INR)</p>
+          <p class="text-lg text-white">0</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Rent per month (INR)</p>
+          <p class="text-lg text-white">0</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Sales per month (INR)</p>
+          <p class="text-lg text-white">250000</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Workers</p>
+          <p class="text-lg text-white">10</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Wages per person per month (INR)</p>
+          <p class="text-lg text-white">10000</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Profits per month (INR)</p>
+          <p class="text-lg text-white">50000</p>
+        </div>
+
+        <!-- Discounts & Offers -->
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Discount Provided</p>
+          <p class="text-lg text-white">No</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Offers Details</p>
+          <p class="text-lg text-white">-</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6">
+          <p class="text-sm text-gray-400">Discount Percentage</p>
+          <p class="text-lg text-white">0%</p>
+        </div>
+
+        <!-- Categories, Services & Payment -->
+        <div class="bg-neutral-800 rounded-lg p-6 md:col-span-2">
+          <p class="text-sm text-gray-400">Categories Served</p>
+          <p class="text-lg text-white">Pizza, Coffee, Burgers</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6 md:col-span-2">
+          <p class="text-sm text-gray-400">Service Types</p>
+          <p class="text-lg text-white">Dine-in, Takeaway</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-6 md:col-span-2">
+          <p class="text-sm text-gray-400">Payment Methods</p>
+          <p class="text-lg text-white">Cash, UPI, Card</p>
+        </div>
+
+        <!-- Menu Files -->
+        <div class="bg-neutral-800 rounded-lg p-6 md:col-span-2">
+          <p class="text-sm text-gray-400">Menu Files</p>
+          <ul class="list-disc list-inside">
+            <li><a href="#" class="text-blue-400 hover:underline">Menu-June.pdf</a></li>
+            <li><a href="#" class="text-blue-400 hover:underline">Drinks-List.pdf</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Recent Chats -->
+    <div id="chats" class="dashboard-section hidden">
+      <h2 class="text-2xl font-bold text-white mb-6">Recent Chats with AI Assistant</h2>
+      <div class="space-y-4">
+        <div class="bg-neutral-800 rounded-lg p-4">
+          <p class="text-sm text-gray-400">You:</p>
+          <p class="text-white">What business should I start with ₹5 lakhs?</p>
+          <p class="text-sm text-gray-400 mt-2">AI Recommendation:</p>
+          <p class="text-green-400">Consider opening a cloud kitchen, as demand is rising in urban areas.</p>
+        </div>
+        <div class="bg-neutral-800 rounded-lg p-4">
+          <p class="text-sm text-gray-400">You:</p>
+          <p class="text-white">Is retail better than online store for my location?</p>
+          <p class="text-sm text-gray-400 mt-2">AI Recommendation:</p>
+          <p class="text-green-400">An online store may scale better in Mumbai due to high digital adoption.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</section>
+
+<!-- JS for Section Switching -->
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.dashboard-section').forEach(section => {
+      section.classList.add('hidden');
+    });
+    document.getElementById(id).classList.remove('hidden');
+  }
+</script>
+{% endblock %}

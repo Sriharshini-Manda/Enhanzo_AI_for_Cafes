@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My App{% endblock %}
+
+{% block content %}
+<section class="relative flex items-center justify-center min-h-screen text-center pt-20">
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-500 via-green-500 to-red-500"></div>
+  <div class="relative z-10 max-w-3xl px-6">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+      Elevate Your Cafe's Experience
+    </h1>
+    <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8">
+      Transform your business with a seamless digital menu, integrated ordering, and real-time customer insights.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="{{ url_for('main.data_collections') }}"
+        class="px-6 py-3 rounded-full text-white bg-blue-600 hover:bg-blue-700 font-semibold transition text-center">
+        Explore Our Solutions
+      </a>
+      <a href="{{ url_for('main.analysis') }}"
+        class="px-6 py-3 rounded-full text-white bg-neutral-800 hover:bg-neutral-700 font-semibold transition text-center">
+        Learn More
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="container mx-auto px-6 py-12 flex flex-col-reverse md:flex-row items-center gap-6">
+  <div class="text-left max-w-full md:max-w-xl text-center md:text-left">
+    <h3 class="text-2xl md:text-3xl font-bold mb-4">Seek professional assistance from the AI expert</h3>
+    <p class="text-neutral-400 text-base md:text-lg">
+      Goodbye accounts and confusing bills! Our platform helps you easily understand your business trends more than
+      ever, as per your queries and doubts. Update yourself with AI and upgrade your Cafe to new heights with these
+      specialized and customized suggestions and high-quality analysis to manage all your services and resources without
+      any hassle or confusion.
+    </p>
+  </div>
+  <div class="text-5xl md:text-6xl text-blue-500 mb-6 md:mb-0">
+    <i class="fas fa-robot"></i>
+  </div>
+</section>
+
+<section class="container mx-auto px-6 py-12 flex flex-col-reverse md:flex-row-reverse items-center gap-6">
+  <div class="text-5xl md:text-6xl text-blue-500 mb-6 md:mb-0">
+    <i class="fas fa-chart-pie"></i>
+  </div>
+  <div class="text-left max-w-full md:max-w-xl text-center md:text-left">
+    <h3 class="text-2xl md:text-3xl font-bold mb-4">Uncover Customer Insights</h3>
+    <p class="text-neutral-400 text-base md:text-lg">
+      Track which menu items are most popular, understand peak ordering times, and optimize your resources. Apply these
+      insights to significantly decrease your expenses, and increase your sales and profits. Use data to optimize your
+      menu and service.
+    </p>
+  </div>
+</section>
+
+<section class="container mx-auto px-6 py-12 flex flex-col-reverse md:flex-row items-center gap-6">
+  <div class="text-left max-w-full md:max-w-xl text-center md:text-left">
+    <h3 class="text-2xl md:text-3xl font-bold mb-4">Get Customized and Detailed Reports Generated Just For You!</h3>
+    <p class="text-neutral-400 text-base md:text-lg">
+      Get personalized, professional reports created tailored to your business needs, leading to better business
+      decisions and efficiency. A report that helps you understand and grow your business.
+    </p>
+  </div>
+  <div class="text-5xl md:text-6xl text-blue-500 mb-6 md:mb-0">
+    <i class="fas fa-file"></i>
+  </div>
+</section>
+
+{% endblock %}

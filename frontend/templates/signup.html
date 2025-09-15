@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<section class="relative flex items-center justify-center min-h-[60vh] text-center pt-24">
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-500 via-green-500 to-red-500"></div>
+
+  <div class="relative z-10 max-w-2xl px-6">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Sign Up</h1>
+    <p class="text-lg text-gray-200">
+      Create your account to start contributing to cafe insights.
+    </p>
+  </div>
+</section>
+
+<section class="container mx-auto px-6 py-16 flex justify-center">
+  <div class="w-full max-w-md bg-neutral-900 border border-neutral-800 rounded-xl shadow-lg p-10">
+    <h2 class="text-2xl font-bold mb-6 text-center">Create Account</h2>
+
+    <form action="{{ url_for('main.signup') }}" method="POST" class="space-y-6">
+      <div>
+        <label for="name" class="block text-sm font-medium text-neutral-300 mb-2">Full Name</label>
+        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700 
+                 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+      <div>
+        <label for="number" class="block text-sm font-medium text-neutral-300 mb-2">Phone Number</label>
+        <input type="text" id="number" name="number" required class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700 
+                 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-neutral-300 mb-2">Email</label>
+        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700 
+        focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <div>
+        <label for="city" class="block text-sm font-medium text-neutral-300 mb-2">City</label>
+        <input type="text" id="city" name="city" required class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700 
+                 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <div class="relative">
+        <label for="password" class="block text-sm font-medium text-neutral-300 mb-2">Password</label>
+        <input type="password" id="password" name="password" required class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700 
+                focus:ring-2 focus:ring-blue-500 focus:outline-none pr-10">
+        <button type="button" id="togglePassword" class="absolute right-3 top-[38px] text-gray-400">
+          🙈
+        </button>
+      </div>
+
+      <div class="relative">
+        <label for="confirm_password" class="block text-sm font-medium text-neutral-300 mb-2">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" required class="w-full px-4 py-3 rounded-lg bg-neutral-800 text-white border border-neutral-700 
+                focus:ring-2 focus:ring-blue-500 focus:outline-none pr-10">
+        <button type="button" id="toggleConfirmPassword" class="absolute right-3 top-[38px] text-gray-400">
+          🙈
+        </button>
+      </div>
+
+      <script>
+        const password = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', () => {
+          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+          password.setAttribute('type', type);
+          togglePassword.textContent = type === 'password' ? '🙈' : '👁️';
+        });
+
+        const confirmPassword = document.getElementById('confirm_password');
+        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+
+        toggleConfirmPassword.addEventListener('click', () => {
+          const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+          confirmPassword.setAttribute('type', type);
+          toggleConfirmPassword.textContent = type === 'password' ? '🙈' : '👁️';
+        });
+      </script>
+
+      <div class="text-center">
+        <button type="submit" class="w-full py-3 px-6 rounded-lg bg-green-600 hover:bg-green-700 
+                 text-white font-semibold transition">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <p class="text-sm text-neutral-400 mt-6 text-center">
+      Already have an account?
+      <a href="{{ url_for('main.login') }}" class="text-blue-400 hover:underline">Login</a>
+    </p>
+  </div>
+</section>
+{% endblock %}
