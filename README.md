@@ -1,4 +1,4 @@
-# Enhanzo: Foundational Architecture for AI-Powered Cafe Business Guidance
+<img width="706" height="800" alt="image" src="https://github.com/user-attachments/assets/36695a5f-1169-488a-b03d-0046bf79392f" /># Enhanzo: Foundational Architecture for AI-Powered Cafe Business Guidance
 
 Enhanzo is an advanced full-stack business intelligence platform designed to support cafe owners in accelerating sales, maximizing profitability, and optimizing menu offerings through data-driven workflows. 
 
@@ -31,6 +31,11 @@ Enhanzo is an advanced full-stack business intelligence platform designed to sup
 
 ### Visual Walkthrough
 *(Drag and drop your project interface screenshots right here inside your GitHub repository to display them beautifully to reviewers!)*
+<img width="706" height="800" alt="image" src="https://github.com/user-attachments/assets/9d3092c0-b972-424b-a46b-c5a49e8c5828" />
+<img width="765" height="800" alt="image" src="https://github.com/user-attachments/assets/79fa0c2d-4b93-4a05-85e7-8a00051ace83" />
+<img width="409" height="800" alt="image" src="https://github.com/user-attachments/assets/368426cd-5473-484d-a22e-724e9d7f96a6" />
+<img width="378" height="1024" alt="image" src="https://github.com/user-attachments/assets/c97f870c-781f-4dec-b86c-3663acbbaa7e" />
+
 
 ### Modular Workspace Directory
 * `backend/` — Contains primary Flask routing logic, database schemas, and data pipelines.
