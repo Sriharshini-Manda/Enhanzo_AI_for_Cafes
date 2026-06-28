@@ -31,7 +31,7 @@ Enhanzo is an advanced full-stack business intelligence platform designed to sup
 
 ### Visual Walkthrough
 *(Drag and drop your project interface screenshots right here inside your GitHub repository to display them beautifully to reviewers!)*
-<img width="706" height="800" alt="image" src="https://github.com/user-attachments/assets/36695a5f-1169-488a-b03d-0046bf79392f" />
+
 <img width="706" height="800" alt="image" src="https://github.com/user-attachments/assets/9d3092c0-b972-424b-a46b-c5a49e8c5828" />
 <img width="765" height="800" alt="image" src="https://github.com/user-attachments/assets/79fa0c2d-4b93-4a05-85e7-8a00051ace83" />
 <img width="409" height="800" alt="image" src="https://github.com/user-attachments/assets/368426cd-5473-484d-a22e-724e9d7f96a6" />
